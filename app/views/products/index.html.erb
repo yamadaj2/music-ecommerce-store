@@ -6,7 +6,7 @@
     <th>Description</th>
   </tr>
   <% @products.each do |product| %>
-    <tr>
+    <tr data-link="<%= product_path(product.id) %>">
       <td><%= product&.name.titleize %></td>
       <td><%= product&.category.titleize %></td>
       <td><%= product.description %></td>
