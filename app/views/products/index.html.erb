@@ -7,9 +7,11 @@
   </tr>
   <% @products.each do |product| %>
     <tr>
-      <td><%= product.name %></td>
+      <td><%= product&.name.titleize %></td>
       <td><%= product&.category.titleize %></td>
       <td><%= product.description %></td>
     </tr>
   <% end %>
 </table>
+
+<%= link_to 'Create New', new_product_path %>
