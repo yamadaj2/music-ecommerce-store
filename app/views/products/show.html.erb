@@ -1,0 +1,16 @@
+<table border='1'>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= product&.name.titleize %></td>
+    <td><%= product&.category.titleize %></td>
+    <td><%= product.description %></td>
+    <td>edit</td>
+    <td>delete</td>
+  </tr>
+</table>
+
+<%= link_to 'Back', products_path %>

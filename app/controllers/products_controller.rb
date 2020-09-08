@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+  before_action :product, only: [:show, :update, :destroy]
+  helper_method :product
+
   def index
     @products = Product.all
   end
@@ -18,9 +21,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   private
 
   def product_params
     params.require(:product).permit(:name, :category, :description)
+  end
+
+  def product
+    @product = Product.find(params[:id])
   end
 end
