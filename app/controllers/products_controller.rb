@@ -21,10 +21,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show; end
-
-  def edit; end
-
   def update
     if product.update(product_params)
       redirect_to products_path, flash: { success: 'updated'}
