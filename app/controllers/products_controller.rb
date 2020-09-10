@@ -21,8 +21,23 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show
+  def show; end
 
+  def edit; end
+
+  def update
+    if product.update(product_params)
+      redirect_to products_path, flash: { success: 'updated'}
+    else
+      render 'edit'
+      flash[:error] = 'Something went wrong'
+    end
+  end
+
+  def destroy
+    name = product.name
+    product.destroy
+    redirect_to products_path, flash: { success: "Deleted #{name}" }
   end
 
   private
@@ -32,6 +47,6 @@ class ProductsController < ApplicationController
   end
 
   def product
-    @product = Product.find(params[:id])
+    Product.find(params[:id])
   end
 end
