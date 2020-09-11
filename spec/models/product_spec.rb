@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
   context 'can create product' do
     it 'creates product when all validations pass' do
-      product = Product.new(name: 'my instrument', description: 'description', category: 'brass')
+      product = Product.new(name: 'my instrument', description: 'description', category: :brass)
       expect(product.save).to be true
     end
 
